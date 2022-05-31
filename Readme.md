@@ -1,4 +1,4 @@
-
+[![Testing a REST API with Cypress](https://github.com/thinogueiras/vdt-season1-marvel-api/actions/workflows/continuous-integration.yaml/badge.svg)](https://github.com/thinogueiras/vdt-season1-marvel-api/actions/workflows/continuous-integration.yaml)
 
 # Viver de Teste 1.ª Temporada
 

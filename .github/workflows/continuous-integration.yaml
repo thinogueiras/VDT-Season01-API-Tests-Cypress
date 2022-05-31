@@ -1,7 +1,7 @@
 name: Testing a REST API with Cypress
 on: 
   push:
-    branches: [ ci ]
+    branches: [ ci, master ]
 jobs:
   build:
     runs-on: ubuntu-latest
