@@ -11,8 +11,6 @@ describe('POST /characters', () => {
             },
         }).then((response) => {
             Cypress.env('token', response.body.token);
-        }).catch(() => {
-            cy.console();
         });
     });
 

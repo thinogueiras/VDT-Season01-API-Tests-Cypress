@@ -5,17 +5,16 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    steps:
-        
+    steps:        
       - name: Project checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.2.0
+        uses: actions/setup-node@v3
         env:
           ACTIONS_ALLOW_UNSECURE_COMMANDS: 'true' 
         with:
-          node-version: 14.x
+          node-version: 16.x
       - name: installation of dependencies
         run: npm ci
       - name: API Automated Tests
-        run: npm run cypress:open && cypress:run
+        run: npm run cypress:run
