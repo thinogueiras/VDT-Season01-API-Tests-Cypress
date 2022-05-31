@@ -1,0 +1,32 @@
+{
+  "name": "vdt-season1-marvel-api",
+  "version": "1.0.0",
+  "description": "Projeto de automação de testes na API da Marvel - 1ª temporada do VDT",
+  "main": "index.js",
+  "scripts": {    
+    "cypress:open": "npx cypress open",
+    "cypress:run": "npx cypress run"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thinogueiras/vdt-season1-marvel-api.git"
+  },
+  "keywords": [
+    "NodeJs",
+    "Cypress",
+    "JavaScript",
+    "Automation"
+  ],
+  "author": "Thiago Nogueira dos Santos",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/thinogueiras/vdt-season1-marvel-api/issues"
+  },
+  "homepage": "https://github.com/thinogueiras/vdt-season1-marvel-api#readme",
+  "devDependencies": {
+    "cypress": "^9.7.0",
+    "eslint": "^8.16.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0"
+  }
+}
