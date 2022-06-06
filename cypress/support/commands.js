@@ -1,25 +1,35 @@
-// ***********************************************
-// This example commands.js shows you how to
-// create various custom commands and overwrite
-// existing commands.
-//
-// For more comprehensive examples of custom
-// commands please read more here:
-// https://on.cypress.io/custom-commands
-// ***********************************************
-//
-//
-// -- This is a parent command --
-// Cypress.Commands.add('login', (email, password) => { ... })
-//
-//
-// -- This is a child command --
-// Cypress.Commands.add('drag', { prevSubject: 'element'}, (subject, options) => { ... })
-//
-//
-// -- This is a dual command --
-// Cypress.Commands.add('dismiss', { prevSubject: 'optional'}, (subject, options) => { ... })
-//
-//
-// -- This will overwrite an existing command --
-// Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+const helper = require('../../cypress.json');
+
+Cypress.Commands.add('setToken', () => {
+    cy.api({
+        method: 'POST',
+        url: '/sessions',
+        body: {
+            email: helper.email,
+            password: helper.password,
+        },
+        failOnStatusCode: false,
+    }).then((response) => {
+        Cypress.env('token', response.body.token);
+    });
+});
+
+Cypress.Commands.add('back2ThePast', () => {
+    cy.api({
+        method: 'DELETE',
+        url: `back2thepast/${helper.myApiID}`,
+        failOnStatusCode: false,
+    });
+});
+
+Cypress.Commands.add('postCharacter', (payLoad) => {
+    cy.api({
+        method: 'POST',
+        url: '/characters',
+        body: payLoad,
+        headers: {
+            Authorization: Cypress.env('token'),
+        },
+        failOnStatusCode: false,
+    }).then((response) => response);
+});
