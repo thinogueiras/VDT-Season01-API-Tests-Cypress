@@ -36,6 +36,7 @@
         "class-methods-use-this": "off",
         "no-return-assign": "off",
         "import/no-extraneous-dependencies" : [ "off" ,  { "devDependencies" : false ,  "optionalDependencies" : false ,  "peerDependencies" : false } ],
-        "global-require": "off"
+        "global-require": "off",
+        "no-useless-escape": "off"
     }
 }
