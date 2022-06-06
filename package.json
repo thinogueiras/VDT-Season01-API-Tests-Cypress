@@ -5,8 +5,7 @@
   "main": "index.js",
   "scripts": {
     "cypress:open": "npx cypress open",
-    "cypress:run": "npx cypress run",
-    "browserlist:update": "browserslist@latest --update-db"
+    "cypress:run": "npx cypress run"
   },
   "repository": {
     "type": "git",
@@ -30,11 +29,5 @@
     "eslint": "^8.16.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-import": "^2.26.0"
-  },
-  "browserslist": {
-    "modern": [
-      "last 1 chrome version",
-      "last 1 firefox version"
-    ]
   }
 }

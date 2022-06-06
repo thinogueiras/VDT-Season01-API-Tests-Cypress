@@ -7,8 +7,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:        
       - name: Checkout
-        uses: actions/checkout@v3
-      - name: Update browserList
-        uses: npx browserslist@latest --update-db 
-      - name: Cypress run 🧪
-        uses: cypress-io/github-action@v2
+        uses: actions/checkout@v2
+      - name: Cypress run 🧪        
+        uses: cypress-io/github-action@v4
+        with:
+          browser: firefox
+          headless: true
+          spec: cypress/integration/*.spec.js
+          record: false

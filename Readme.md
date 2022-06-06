@@ -4,7 +4,7 @@
     <img src=".github/logo-stiker.svg" width="250px">
 </h1>
 
-[![API Tests with Cypress](https://github.com/thinogueiras/vdt-season1-marvel-api/actions/workflows/continuous-integration.yaml/badge.svg?branch=master)](https://github.com/thinogueiras/vdt-season1-marvel-api/actions/workflows/continuous-integration.yaml)
+[![API Tests with Cypress](https://github.com/thinogueiras/vdt-season1-marvel-api/actions/workflows/continuous-integration.yaml/badge.svg)](https://github.com/thinogueiras/vdt-season1-marvel-api/actions/workflows/continuous-integration.yaml)
 
 # Marvel API
 
