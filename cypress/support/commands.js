@@ -1,4 +1,4 @@
-const helper = require('../../cypress.json');
+import helper from '../../cypress.json';
 
 Cypress.Commands.add('setToken', () => {
     cy.api({
@@ -32,4 +32,21 @@ Cypress.Commands.add('postCharacter', (payLoad) => {
         },
         failOnStatusCode: false,
     }).then((response) => response);
+});
+
+Cypress.Commands.add('getAllCharacters', () => {
+    cy.api({
+        method: 'GET',
+        url: '/characters',
+        headers: {
+            Authorization: Cypress.env('token'),
+        },
+        failOnStatusCode: false,
+    }).then((response) => response);
+});
+
+Cypress.Commands.add('insertCharacters', (characters) => {
+    characters.forEach((c) => {
+        cy.postCharacter(c);
+    });
 });

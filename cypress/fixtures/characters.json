@@ -1,0 +1,50 @@
+{
+  "Characters": [
+    {
+      "name": "Logan",
+      "alias": "Wolverine",
+      "team": [
+        "X-Men",
+        "Arma X",
+        "New Avengers"
+      ],
+      "active": true
+    },
+    {
+      "name": "Bruce Banner",
+      "alias": "Hulk",
+      "team": [
+        "Avengers",
+        "Defenders"
+      ],
+      "active": true
+    },
+    {
+      "name": "Peter Paker",
+      "alias": "Homem Aranha",
+      "team": [
+        "Avengers"
+      ],
+      "active": true
+    },
+    {
+      "name": "Steven Strange",
+      "alias": "Dr. Strange",
+      "team": [
+        "Avengers",
+        "Illuminati",
+        "The Order"
+      ],
+      "active": true
+    },
+    {
+      "name": "Steve Rogers",
+      "alias": "Capitão América",
+      "team": [
+        "Avengers",
+        "S.H.I.E.L.D"
+      ],
+      "active": true
+    }
+  ]
+}
