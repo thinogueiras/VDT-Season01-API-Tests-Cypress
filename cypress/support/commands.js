@@ -45,8 +45,42 @@ Cypress.Commands.add('getAllCharacters', () => {
     }).then((response) => response);
 });
 
-Cypress.Commands.add('insertCharacters', (characters) => {
+Cypress.Commands.add('getCharacterByID', (characterId) => {
+    cy.api({
+        method: 'GET',
+        url: `/characters/${characterId}`,
+        headers: {
+            Authorization: Cypress.env('token'),
+        },
+        failOnStatusCode: false,
+    }).then((response) => response);
+});
+
+Cypress.Commands.add('getCharacterByName', (characterName) => {
+    cy.api({
+        method: 'GET',
+        url: '/characters',
+        qs: { name: characterName },
+        headers: {
+            Authorization: Cypress.env('token'),
+        },
+        failOnStatusCode: false,
+    }).then((response) => response);
+});
+
+Cypress.Commands.add('insertLisOfCharacters', (characters) => {
     characters.forEach((c) => {
         cy.postCharacter(c);
     });
+});
+
+Cypress.Commands.add('deleteCharacterByID', (characterId) => {
+    cy.api({
+        method: 'DELETE',
+        url: `/characters/${characterId}`,
+        headers: {
+            Authorization: Cypress.env('token'),
+        },
+        failOnStatusCode: false,
+    }).then((response) => response);
 });
