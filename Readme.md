@@ -28,14 +28,14 @@
 ### Busca de Personagens
 
 - [X] Deve retornar uma lista de personagens cadastrados
-- [ ] Deve poder buscar por personagem por nome
-- [ ] Deve poder buscar personagem pelo id
-- [ ] Deve retornar 404 ao buscar por id não cadastrado
+- [X] Deve poder buscar personagem por nome
+- [X] Deve poder buscar personagem pelo id
+- [X] Deve retornar o statusCode = 404 ao buscar por id não cadastrado
 
 ### Remover Personagem
 
-- [ ] Deve poder remover por id, um personagem cadastrado
-- [ ] Deve retornar 404 - não encontrado ao remover por id não cadastrado
+- [X] Deve permitir remover por id, um personagem cadastrado
+- [X] Deve retornar o statusCode = 404 ao tentar remover um id não cadastrado
 
 ## 🚀 Tecnologias
 
