@@ -6,6 +6,11 @@
 
 [![API Tests with Cypress](https://github.com/thinogueiras/vdt-season1-marvel-api/actions/workflows/continuous-integration.yaml/badge.svg)](https://github.com/thinogueiras/vdt-season1-marvel-api/actions/workflows/continuous-integration.yaml)
 
+<h2>🐞 🔍 Last Cypress Test Results on GitHub Actions 🔎 🐞</h2>
+<h2>Cypress Results</h2>
+<table><tr><th>Result</th><th>Passed ✅</th><th>Failed ❌</th><th>Pending ✋</th><th>Skipped ↩️</th><th>Duration 🕗</th></tr><tr><td>Passing ✅</td><td>12</td><td>0</td><td>0</td><td>0</td><td>10.356s</td></tr></table>
+<a href="">
+
 # Marvel API
 
 ## 🔖 Requisitos funcionais

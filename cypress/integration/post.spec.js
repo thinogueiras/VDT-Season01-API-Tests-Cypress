@@ -13,9 +13,9 @@ describe('POST /characters', () => {
         };
 
         cy.postCharacter(character)
-            .then((response) => {
-                expect(response.status).to.eql(201);
-                expect(response.body.character_id.length).to.equal(24);
+            .then(async (response) => {
+                await expect(response.status).to.eql(201);
+                await expect(response.body.character_id.length).to.equal(24);
             });
     });
 
@@ -29,16 +29,16 @@ describe('POST /characters', () => {
 
         before(() => {
             cy.postCharacter(character)
-                .then((response) => {
-                    expect(response.status).to.eql(201);
+                .then(async (response) => {
+                    await expect(response.status).to.eql(201);
                 });
         });
 
         it('Não deve cadastrar duplicado', () => {
             cy.postCharacter(character)
-                .then((response) => {
-                    expect(response.status).to.eql(400);
-                    expect(response.body.error).to.eql('Duplicate character');
+                .then(async (response) => {
+                    await expect(response.status).to.eql(400);
+                    await expect(response.body.error).to.eql('Duplicate character');
                 });
         });
     });
@@ -52,9 +52,9 @@ describe('POST /characters', () => {
             };
 
             cy.postCharacter(character)
-                .then((response) => {
-                    expect(response.status).to.eql(400);
-                    expect(response.body.validation.body.message).to.eql('\"name\" is required');
+                .then(async (response) => {
+                    await expect(response.status).to.eql(400);
+                    await expect(response.body.validation.body.message).to.eql('\"name\" is required');
                 });
         });
 
@@ -66,9 +66,9 @@ describe('POST /characters', () => {
             };
 
             cy.postCharacter(character)
-                .then((response) => {
-                    expect(response.status).to.eql(400);
-                    expect(response.body.validation.body.message).to.eql('\"alias\" is required');
+                .then(async (response) => {
+                    await expect(response.status).to.eql(400);
+                    await expect(response.body.validation.body.message).to.eql('\"alias\" is required');
                 });
         });
 
@@ -80,9 +80,9 @@ describe('POST /characters', () => {
             };
 
             cy.postCharacter(character)
-                .then((response) => {
-                    expect(response.status).to.eql(400);
-                    expect(response.body.validation.body.message).to.eql('\"team\" is required');
+                .then(async (response) => {
+                    await expect(response.status).to.eql(400);
+                    await expect(response.body.validation.body.message).to.eql('\"team\" is required');
                 });
         });
 
@@ -94,9 +94,9 @@ describe('POST /characters', () => {
             };
 
             cy.postCharacter(character)
-                .then((response) => {
-                    expect(response.status).to.eql(400);
-                    expect(response.body.validation.body.message).to.eql('\"active\" is required');
+                .then(async (response) => {
+                    await expect(response.status).to.eql(400);
+                    await expect(response.body.validation.body.message).to.eql('\"active\" is required');
                 });
         });
     });
