@@ -4,8 +4,9 @@
   "description": "Projeto de automação de testes na API da Marvel - 1ª temporada do VDT",
   "main": "index.js",
   "scripts": {
+    "back2thePast": "sh ./back2thePast.sh",
     "cypress:open": "npx cypress open",
-    "cypress:run": "npx cypress run"
+    "test": "npm run back2thePast && npx cypress run"
   },
   "repository": {
     "type": "git",
@@ -15,7 +16,9 @@
     "NodeJs",
     "Cypress",
     "JavaScript",
-    "Automation"
+    "AutomationTests",
+    "TestAutomation",
+    "APITests"
   ],
   "author": "Thiago Nogueira dos Santos",
   "license": "MIT",

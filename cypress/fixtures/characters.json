@@ -20,10 +20,12 @@
       "active": true
     },
     {
-      "name": "Peter Parker",
-      "alias": "Homem Aranha",
+      "name": "Wanda Maximoff",
+      "alias": "Feiticeira Escarlate",
       "team": [
-        "Avengers"
+        "Avengers",
+        "West Coast Avengers",
+        "Brotherhood of Mutants"
       ],
       "active": true
     },

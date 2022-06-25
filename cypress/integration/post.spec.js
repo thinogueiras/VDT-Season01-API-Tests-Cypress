@@ -1,14 +1,9 @@
 describe('POST /characters', () => {
-    before(() => {
-        cy.back2ThePast();
-        cy.setToken();
-    });
-
     it('Deve cadastrar um personagem com sucesso', () => {
         const character = {
-            name: 'Charles Xavier',
-            alias: 'Professor X',
-            team: ['x-men', 'Illuminati'],
+            name: 'Tony Stark',
+            alias: 'Homem de Ferro',
+            team: ['Avengers', 'Illuminati', 'S.H.I.E.L.D.'],
             active: true,
         };
 
@@ -21,9 +16,9 @@ describe('POST /characters', () => {
 
     context('Quando o personagem já existe', () => {
         const character = {
-            name: 'Logan',
-            alias: 'Wolverine',
-            team: ['x-men'],
+            name: 'Clint Barton',
+            alias: 'Gavião Arqueiro',
+            team: ['Avengers', 'Defensores', 'S.H.I.E.L.D.'],
             active: true,
         };
 
@@ -46,8 +41,8 @@ describe('POST /characters', () => {
     context('Validar os campos obrigatórios para o cadastro do personagem', () => {
         it('Validar a obrigatoriedade do nome', () => {
             const character = {
-                alias: 'Wolverine',
-                team: ['x-men'],
+                alias: 'Viúva Negra',
+                team: ['Avengers', 'S.H.I.E.L.D.', 'Vigilantes'],
                 active: true,
             };
 
@@ -60,8 +55,8 @@ describe('POST /characters', () => {
 
         it('Validar a obrigatoriedade do alias', () => {
             const character = {
-                name: 'Logan',
-                team: ['x-men'],
+                name: 'Natasha Romanoff',
+                team: ['Avengers', 'S.H.I.E.L.D.', 'Vigilantes'],
                 active: true,
             };
 
@@ -74,8 +69,8 @@ describe('POST /characters', () => {
 
         it('Validar a obrigatoriedade do team', () => {
             const character = {
-                name: 'Logan',
-                alias: 'Wolverine',
+                name: 'Natasha Romanoff',
+                alias: 'Viúva Negra',
                 active: true,
             };
 
@@ -88,9 +83,9 @@ describe('POST /characters', () => {
 
         it('Validar a obrigatoriedade do active', () => {
             const character = {
-                name: 'Logan',
-                alias: 'Wolverine',
-                team: ['x-men'],
+                name: 'Natasha Romanoff',
+                alias: 'Viúva Negra',
+                team: ['Avengers', 'S.H.I.E.L.D.', 'Vigilantes'],
             };
 
             cy.postCharacter(character)

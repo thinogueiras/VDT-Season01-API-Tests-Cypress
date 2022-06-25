@@ -2,16 +2,18 @@ import fixture from '../fixtures/characters.json';
 
 describe('GET /characters', () => {
     before(() => {
-        cy.back2ThePast();
-        cy.setToken();
-        cy.insertLisOfCharacters(fixture.Characters);
+        cy.insertLisOfCharacters(fixture.Characters)
+            .then(async (response) => {
+                await expect(response.status).to.equal(201);
+                await expect(response.body).to.be.an('Object');
+            });
     });
 
     it('Deve retornar uma lista de personagens', () => {
         cy.getAllCharacters()
             .then(async (response) => {
                 await expect(response.status).to.equal(200);
-                await expect(response.body).to.be.a('array');
+                await expect(response.body).to.be.an('array');
                 await expect(response.body.length).equal(fixture.Characters.length);
             });
     });
@@ -28,19 +30,18 @@ describe('GET /characters', () => {
 });
 
 describe('GET /characters/id', () => {
-    const newCharacter = {
-        name: 'Tony Stark',
-        alias: 'Homem de Ferro',
-        team: ['Avengers', 'Illuminati', 'S.H.I.E.L.D.'],
-        active: true,
-    };
     context('Quando tenho um personagem cadastrado', () => {
+        const newCharacter = {
+            name: 'Charles Xavier',
+            alias: 'Professor X',
+            team: ['X-men', 'Illuminati'],
+            active: true,
+        };
+
         before(() => {
-            cy.back2ThePast();
-            cy.setToken();
             cy.postCharacter(newCharacter)
                 .then(async (response) => {
-                    await Cypress.env('characterId', response.body.character_id);
+                    Cypress.env('characterId', response.body.character_id);
                 });
         });
 
@@ -49,14 +50,18 @@ describe('GET /characters/id', () => {
             cy.getCharacterByID(id)
                 .then(async (response) => {
                     await expect(response.status).to.equal(200);
-                    await expect(response.body.name).to.equal('Tony Stark');
-                    await expect(response.body).to.have.property('alias', 'Homem de Ferro');
+                    await expect(response.body.name).to.equal('Charles Xavier');
+                    await expect(response.body).to.have.property('alias', 'Professor X');
                 });
         });
 
         it('Deve retornar 404 ao buscar por um ID não cadastrado', () => {
-            cy.back2ThePast();
             const id = Cypress.env('characterId');
+            cy.deleteCharacterByID(id)
+                .then(async (response) => {
+                    await expect(response.status).to.equal(204);
+                    await expect(response.body).to.be.empty;
+                });
             cy.getCharacterByID(id)
                 .then(async (response) => {
                     await expect(response.status).to.equal(404);
