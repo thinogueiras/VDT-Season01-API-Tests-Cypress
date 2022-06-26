@@ -1,3 +1,5 @@
+import fixture from '../fixtures/characters.json';
+
 describe('POST /characters', () => {
     it('Deve cadastrar um personagem com sucesso', () => {
         const character = {
@@ -15,22 +17,8 @@ describe('POST /characters', () => {
     });
 
     context('Quando o personagem já existe', () => {
-        const character = {
-            name: 'Clint Barton',
-            alias: 'Gavião Arqueiro',
-            team: ['Avengers', 'Defensores', 'S.H.I.E.L.D.'],
-            active: true,
-        };
-
-        before(() => {
-            cy.postCharacter(character)
-                .then(async (response) => {
-                    await expect(response.status).to.eql(201);
-                });
-        });
-
         it('Não deve cadastrar duplicado', () => {
-            cy.postCharacter(character)
+            cy.postCharacter(fixture.Characters[0])
                 .then(async (response) => {
                     await expect(response.status).to.eql(400);
                     await expect(response.body.error).to.eql('Duplicate character');

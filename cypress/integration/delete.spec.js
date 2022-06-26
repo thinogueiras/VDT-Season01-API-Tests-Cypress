@@ -24,9 +24,11 @@ describe('DELETE /characters/id', () => {
                     await expect(response.body).to.be.empty;
                 });
         });
+    });
 
-        it('Deve retornar 404 ao remover um ID não cadastrado', () => {
-            const id = Cypress.env('characterId');
+    context('Quando eu removo um ID não cadastrado', () => {
+        it('Deve retornar o erro 404', () => {
+            const id = '62b88de215e35cd77d0d0e1e';
             cy.deleteCharacterByID(id)
                 .then(async (response) => {
                     await expect(response.status).to.equal(404);

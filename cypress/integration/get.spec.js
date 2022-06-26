@@ -2,6 +2,15 @@ import fixture from '../fixtures/characters.json';
 
 describe('GET /characters', () => {
     before(() => {
+        cy.getAllCharacters()
+            .then(async (response) => {
+                Cypress.env('responseBody', response.body);
+                const responseBody = Cypress.env('responseBody');
+                if (responseBody != '') {
+                    cy.back2ThePast();
+                }
+            });
+
         cy.insertLisOfCharacters(fixture.Characters)
             .then(async (response) => {
                 await expect(response.status).to.equal(201);
@@ -30,7 +39,7 @@ describe('GET /characters', () => {
 });
 
 describe('GET /characters/id', () => {
-    context('Quando tenho um personagem cadastrado', () => {
+    context('Quando eu tenho um personagem cadastrado', () => {
         const newCharacter = {
             name: 'Charles Xavier',
             alias: 'Professor X',
