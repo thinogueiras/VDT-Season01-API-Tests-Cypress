@@ -38,6 +38,7 @@
         "import/no-extraneous-dependencies" : [ "off" ,  { "devDependencies" : false ,  "optionalDependencies" : false ,  "peerDependencies" : false } ],
         "global-require": "off",
         "no-useless-escape": "off",
-        "no-unused-expressions": "off"
+        "no-unused-expressions": "off",
+        "eqeqeq": "off"
     }
 }
