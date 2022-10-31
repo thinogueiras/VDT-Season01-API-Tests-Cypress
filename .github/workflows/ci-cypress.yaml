@@ -23,6 +23,7 @@ jobs:
           browser: chrome
           record: true
           headless: true
+          group: 'API-Tests-Cypress'
           spec: cypress/integration/*.spec.js
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
