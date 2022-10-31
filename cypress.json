@@ -1,9 +1,9 @@
 {
   "projectId": "xtpxnb",
-  "baseUrl": ${{ secrets.BASE_URL_API }},
+  "baseUrl": "secrets.BASE_URL_API",
   "video": true,
   "screenshotOnRunFailure": true,
-  "email":  ${{ secrets.EMAIL }},
+  "email": "secrets.EMAIL",
   "password": "qa-cademy@2022",
-  "myApiID": ${{ secrets.MYAPIID }}
+  "myApiID": "secrets.MYAPIID"
 }
