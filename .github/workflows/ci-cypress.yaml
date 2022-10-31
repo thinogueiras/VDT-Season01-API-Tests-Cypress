@@ -7,21 +7,21 @@ on:
       branches: [ master, main, develop]
 
 jobs:
-  cypress-api-run:
+  cypress-run:
     runs-on: ubuntu-latest
-
+    
     steps:        
       - name: Checkout
-        uses: actions/checkout@v3       
+        uses: actions/checkout@v2       
       - name: Cypress run 🧪        
         uses: cypress-io/github-action@v4.1.0
         with:
-          wait-on: ${{ secrets.BASE_URL_MARVER_REST_API }}
+          wait-on: ${{ secrets.BASE_URL_API }}
           wait-on-timeout: 60
           run: |
             npm run back2thePast
-          record: false
           browser: chrome
+          record: true
           headless: true
           spec: cypress/integration/*.spec.js
         env:
