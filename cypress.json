@@ -1,9 +1,9 @@
 {
   "projectId": "xtpxnb",
-  "baseUrl": "https://marvel-qa-cademy.herokuapp.com",
-  "video": false,
+  "baseUrl": ${{ secrets.BASE_URL_API }},
+  "video": true,
   "screenshotOnRunFailure": true,
-  "email": "thiagonogueira@hotmail.com.br",
+  "email":  ${{ secrets.EMAIL }},
   "password": "qa-cademy@2022",
-  "myApiID": "6292f72645857500161f3593"
+  "myApiID": ${{ secrets.MYAPIID }}
 }
