@@ -18,7 +18,7 @@ jobs:
         with:
           wait-on: ${{ secrets.BASE_URL_API }}
           wait-on-timeout: 60
-          command: |
+          run: |
               npm run back2thePast
           browser: chrome
           record: false
