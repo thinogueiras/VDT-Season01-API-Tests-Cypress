@@ -12,14 +12,14 @@ jobs:
     
     steps:        
       - name: Checkout 🛎
-        uses: actions/checkout@v3       
+        uses: actions/checkout@v3
+      - run: |
+          npm run back2thePast
       - name: Run Cypress Tests 🧪        
-        uses: cypress-io/github-action@v5
+        uses: cypress-io/github-action@v5      
         with:
           wait-on: ${{ secrets.BASE_URL_API }}
-          wait-on-timeout: 60
-          build: |
-              npm run back2thePast
+          wait-on-timeout: 60          
           browser: chrome          
           group: 'API-Tests-Cypress'
           spec: cypress/integration/*.spec.js
