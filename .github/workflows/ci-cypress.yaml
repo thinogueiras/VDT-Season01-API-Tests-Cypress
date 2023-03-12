@@ -7,11 +7,11 @@ on:
       branches: [ master, main, develop]
 
 jobs:
-  API-Tests-Cypress:
-    runs-on: ubuntu-latest
+  cypress-run:
+    runs-on: ubuntu-22.04
     
     steps:        
-      - name: Checkout
+      - name: Checkout 🛎
         uses: actions/checkout@v3       
       - name: Run Cypress Tests 🧪        
         uses: cypress-io/github-action@v5
@@ -19,12 +19,10 @@ jobs:
           wait-on: ${{ secrets.BASE_URL_API }}
           wait-on-timeout: 60
           run: |
-              npm run back2thePast
-          browser: chrome
-          record: false
-          headed: true
-          group: 'API-Tests-Cypress'
+            npm run back2thePast
+          browser: chrome          
           spec: cypress/integration/*.spec.js
+          group: 'API-Tests-Cypress'          
         env:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
