@@ -7,7 +7,7 @@ on:
       branches: [ master, main, develop]
 
 jobs:
-  build:
+  API-Tests-Cypress:
     runs-on: ubuntu-latest
     
     steps:        
@@ -21,7 +21,7 @@ jobs:
           run: |
             npm run back2thePast
           browser: chrome
-          record: true
+          record: false
           headless: true
           group: 'API-Tests-Cypress'
           spec: cypress/integration/*.spec.js
