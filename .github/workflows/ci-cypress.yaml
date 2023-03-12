@@ -18,11 +18,11 @@ jobs:
         with:
           wait-on: ${{ secrets.BASE_URL_API }}
           wait-on-timeout: 60
-          run: |
-            npm run back2thePast
+          command: |
+              npm run back2thePast
           browser: chrome
           record: false
-          headless: true
+          headed: true
           group: 'API-Tests-Cypress'
           spec: cypress/integration/*.spec.js
         env:
