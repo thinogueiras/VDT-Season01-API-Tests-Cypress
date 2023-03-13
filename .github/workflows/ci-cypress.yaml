@@ -15,7 +15,8 @@ jobs:
     steps:        
       - name: Checkout 🛎
         uses: actions/checkout@v3
-      - run: |
+      - name: Reset Database  
+        run: |
             npm run back2thePast
       - name: Run Cypress Tests 🧪        
         uses: cypress-io/github-action@v5      
